@@ -3,60 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Happy Birthday Website | Akash">
-    <meta name="github" content="https://github.com/akash08884">
-    <title>Happy Birthday | Akash</title>
+    <title>Happy Birthday Celebration</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <audio id="birthdaySong" src="audio/happy-birthday.mp3" loop></audio>
-    <audio id="cheerSound" src="audio/cheer.mp3"></audio>
-
     <div id="wrapper">
-        <div class="flag__birthday">
-            <img src="images/flag.png" class="flag flag__left">
-            <img src="images/flag.png" class="flag flag__right">
+        <!-- Birthday Banner -->
+        <div class="banner">
+            <h1>Happy Birthday!</h1>
         </div>
 
+        <!-- Content Section -->
         <div class="content">
             <div class="left">
                 <div class="title">
-                    <h1 class="happy">Happy</h1>
-                    <h1 class="birthday">Birthday</h1>
+                    <h1 class="happy">
+                        <span style="--t: 4s;">H</span>
+                        <span style="--t: 4.2s;">a</span>
+                        <span style="--t: 4.4s;">p</span>
+                        <span style="--t: 4.6s;">p</span>
+                        <span style="--t: 4.8s;">y</span>
+                    </h1>
+                    <h1 class="birthday">
+                        <span style="--t: 5s;">B</span>
+                        <span style="--t: 5.2s;">i</span>
+                        <span style="--t: 5.4s;">r</span>
+                        <span style="--t: 5.6s;">t</span>
+                        <span style="--t: 5.8s;">h</span>
+                        <span style="--t: 6s;">d</span>
+                        <span style="--t: 6.2s;">a</span>
+                        <span style="--t: 6.4s;">y</span>
+                    </h1>
                     <div class="hat">
-                        <img src="images/hat.png" width="130">
+                        <img src="images/hat.png" alt="Birthday Hat" width="130">
                     </div>
                 </div>
                 <div class="btn">
-                    <button id="btn__letter">Click here <i class="fa-regular fa-envelope"></i></button>
+                    <button id="btn__celebrate">Celebrate <i class="fa-regular fa-bell"></i></button>
                 </div>
             </div>
-
             <div class="right">
                 <div class="profile">
-                    <img src="images/profile.png" class="profile__img">
-                    <div class="name">Akash</div>
-                    <div class="balloon">
-                        <img src="images/balloon.png">
-                    </div>
+                    <img src="images/profile.png" class="profile__img" alt="Profile Image">
+                    <div class="name">Celebration Time!</div>
+                    <div class="balloon"><img src="images/balloon.png" alt="Balloon"></div>
                 </div>
             </div>
         </div>
 
-        <div class="cake">
-            <img src="images/cake.png" id="cakeImg">
-            <button id="blowCandles">Blow Candles</button>
+        <!-- Fireworks Canvas -->
+        <canvas id="fireworks"></canvas>
+
+        <!-- Footer Section -->
+        <div id="footer">
+            <p>Created with ❤️ by [Your Name]</p>
         </div>
     </div>
 
-    <div id="copy">
-        <p>Creator: <a href="https://github.com/akash08884">Akash</a></p>
-    </div>
-
-    <canvas id="fireworks"></canvas>
-
-    <script src="script.js"></script>
+    <!-- Background Music -->
+    <audio id="birthdaySong" src="audio/happy-birthday.mp3" loop></audio>
+    <audio id="cheerSound" src="audio/cheer.mp3"></audio>
 </body>
 </html>
