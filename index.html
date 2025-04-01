@@ -1,77 +1,303 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>जन्मदिन मुबारक हो Rohan!</title>
+    <meta name="title" content="Happy Birthday Website 2.0 | Aoudumber Bade">
+    <meta name="description" content="A beautiful interactive birthday website for Jayesh">
+    <meta name="github" content="https://github.com/Aoudumber-Bade">
+    <title>HBD 2.0 | Aoudumber Bade</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Updated to the latest FontAwesome version and using defer for script loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+    <!-- Preload essential images for better performance -->
+    <link rel="preload" as="image" href="./images/r.png">
+    <link rel="preload" as="image" href="./images/hat.png">
+    <link rel="preload" as="image" href="./images/1.png">
 </head>
 <body>
     <div id="wrapper">
-        <!-- Birthday Banner -->
-        <div class="banner">
-            <h1>जन्मदिन मुबारक हो Rohan!</h1>
+        <div class="flag__birthday">
+            <img src="./images/1.png" alt="Birthday flag" width="350" class="flag__left" loading="eager">
+            <img src="./images/1.png" alt="Birthday flag" width="350" class="flag__right" loading="eager">
         </div>
-
-        <!-- Content Section -->
         <div class="content">
             <div class="left">
                 <div class="title">
                     <h1 class="happy">
                         <span style="--t: 4s;">H</span>
-                        <span style="--t: 4.2s;">A</span>
-                        <span style="--t: 4.4s;">P</span>
-                        <span style="--t: 4.6s;">P</span>
-                        <span style="--t: 4.8s;">Y</span>
+                        <span style="--t: 4.2s;">a</span>
+                        <span style="--t: 4.4s;">p</span>
+                        <span style="--t: 4.6s;">p</span>
+                        <span style="--t: 4.8s;">y</span>
                     </h1>
                     <h1 class="birthday">
                         <span style="--t: 5s;">B</span>
-                        <span style="--t: 5.2s;">I</span>
-                        <span style="--t: 5.4s;">R</span>
-                        <span style="--t: 5.6s;">T</span>
-                        <span style="--t: 5.8s;">H</span>
-                        <span style="--t: 6s;">D</span>
-                        <span style="--t: 6.2s;">A</span>
-                        <span style="--t: 6.4s;">Y</span>
+                        <span style="--t: 5.2s;">i</span>
+                        <span style="--t: 5.4s;">r</span>
+                        <span style="--t: 5.6s;">t</span>
+                        <span style="--t: 5.8s;">h</span>
+                        <span style="--t: 6s;">d</span>
+                        <span style="--t: 6.2s;">a</span>
+                        <span style="--t: 6.4s;">y</span>
                     </h1>
+                    <div class="hat">
+                        <img src="./images/hat.png" alt="Party hat" width="130">
+                    </div>
+                </div>
+                <div class="date__of__birth">
+                    <span></span>
                 </div>
                 <div class="btn">
-                    <button id="btn__celebrate">जश्न मनाएं <i class="fa-regular fa-bell"></i></button>
+                    <button id="btn__letter" aria-label="Open birthday message">
+                        Click here Jayesh
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
                 </div>
             </div>
             <div class="right">
-                <div class="profile">
-                    <img src="images/profile.png" class="profile__img" alt="Rohan ki Photo">
-                    <div class="name">Rohan</div>
-                    <div class="balloon"><img src="images/balloon.png" alt="Balloon"></div>
+                <div class="box__account">
+                    <div class="image">
+                        <img src="./images/r.png" alt="Jayesh's photo">
+                    </div>
+                    <div class="name">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Jayesh</span>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="balloon_one">
+                        <img width="100" height="184" src="./images/balloon1.png" alt="Balloon">
+                    </div>
+                    <div class="balloon_two">
+                        <img width="100" height="184" src="./images/balloon2.png" alt="Balloon">
+                    </div>
+                </div>
+                <div class="cricle">
+                    <div class="text__cricle">
+                        <span style="--i: 1;">h</span>
+                        <span style="--i: 2;">a</span>
+                        <span style="--i: 3;">p</span>
+                        <span style="--i: 4;">p</span>
+                        <span style="--i: 5;">y</span>
+                        <span style="--i: 6;">-</span>
+                        <span style="--i: 7;">b</span>
+                        <span style="--i: 8;">i</span>
+                        <span style="--i: 9;">r</span>
+                        <span style="--i: 10;">t</span>
+                        <span style="--i: 11;">h</span>
+                        <span style="--i: 12;">d</span>
+                        <span style="--i: 13;">a</span>
+                        <span style="--i: 14;">y</span>
+                        <span style="--i: 15;">-</span>
+                    </div>
+                    <i class="fa-solid fa-heart"></i>
                 </div>
             </div>
         </div>
-
-        <!-- Celebrate Box -->
-        <div id="celebrateBox" class="celebrate-box">
-            <p>Celebrate Your Birthday Rohan!</p>
+        
+        <!-- Decorative elements -->
+        <div class="decorate_star star1" style="--t: 15s;"></div>
+        <div class="decorate_star star2" style="--t: 15.2s;"></div>
+        <div class="decorate_star star3" style="--t: 15.4s;"></div>
+        <div class="decorate_star star4" style="--t: 15.6s;"></div>
+        <div class="decorate_star star5" style="--t: 15.8s;"></div>
+        <div class="decorate_flower--one" style="--t: 15s;">
+            <img width="20" height="20" src="./images/decorate_flower.png" alt="Decorative flower">
+        </div>
+        <div class="decorate_flower--two" style="--t: 15.3s;">
+            <img width="20" height="20" src="./images/decorate_flower.png" alt="Decorative flower">
+        </div>
+        <div class="decorate_flower--three" style="--t: 15.6s;">
+            <img width="20" height="20" src="./images/decorate_flower.png" alt="Decorative flower">
+        </div>
+        <div class="decorate_bottom">
+            <img src="./images/decorate.png" alt="Bottom decoration" width="100" height="100">
+        </div>
+        <div class="smiley__icon">
+            <img src="./images/smiley_icon.png" alt="Smiley emoji" width="100" height="100">
         </div>
 
-        <!-- Cake Section -->
-        <div id="cakeSection" class="cake-section">
-            <img src="images/cake.png" alt="Birthday Cake">
-            <button id="btn__cheer" class="btn__cheer">Cheers! <i class="fa-solid fa-glass-cheers"></i></button>
-        </div>
-
-        <!-- Fireworks Canvas -->
-        <canvas id="fireworks"></canvas>
-
-        <!-- Footer Section -->
-        <div id="footer">
-            <p>❤️ Dosti ke naam</p>
+        <!-- Birthday letter popup -->
+        <div class="box__letter" id="letterPopup">
+            <div class="letter__border">
+                <div class="letter">
+                    <div class="title__letter"></div>
+                    <div class="content__letter">
+                        <div class="left">
+                            <img id="heart__letter" src="https://media.giphy.com/media/YKUvclrGYmDKXwtphf/giphy.gif" alt="Heart animation">
+                            <img class="heart heart_1" style="--t: 0.2s" width="20" height="20" src="./images/heart.png" alt="Heart">
+                            <img class="heart heart_2" style="--t: 0.4s" width="20" height="20" src="./images/heart.png" alt="Heart">
+                            <img class="heart heart_3" style="--t: 0.6s" width="20" height="20" src="./images/heart.png" alt="Heart">
+                            <img class="heart heart_4" style="--t: 0.8s" width="20" height="20" src="./images/heart.png" alt="Heart">
+                        </div>
+                        <div class="right">
+                            <div class="love__img">
+                                <img src="https://media.giphy.com/media/m85llaN7ZkFIHtURiC/giphy.gif" alt="Love animation" width="220">
+                            </div>
+                            <div class="text__letter">
+                                <p></p>
+                            </div>
+                            <img id="mewmew" width="80" height="80" src="./images/mewmew.gif" alt="Cute animation">
+                        </div>
+                    </div>
+                </div>
+                <button class="close" aria-label="Close letter">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Background Music -->
-    <audio id="birthdaySong" src="audio/happy-birthday.mp3" loop></audio>
-    <audio id="cheerSound" src="audio/cheer.mp3"></audio>
+    <div id="copy">
+        <p class="text-center text-white text-sm">OG Creator <a href="https://www.instagram.com/" target="_blank" rel="noopener">@Akash</a></p>
+    </div>
+
+    <script>
+        // Initialize once document is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const datetxt = "29 April 2001";
+            const datatxtletter = "Dosti hawa nahi jo bekar ho jaaye, Dosti rishte nahi jo lag kar toot jaaye. Dosti toh saaya hai us dhoop ka, Jo saath ho toh sirf sukoon hi sukoon laaye.. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
+            const titleLetter = "To you";
+            
+            // Cache DOM elements for better performance
+            const dateOfBirth = document.querySelector(".date__of__birth span");
+            const textLetter = document.querySelector(".text__letter p");
+            const titleLetterEl = document.querySelector(".title__letter");
+            const letterPopup = document.getElementById("letterPopup");
+            const letterBorder = document.querySelector(".letter__border");
+            const btnLetter = document.getElementById("btn__letter");
+            const closeBtn = document.querySelector(".close");
+            const heartLetter = document.querySelector("#heart__letter");
+            const loveImg = document.querySelector(".love__img");
+            const mewmew = document.querySelector("#mewmew");
+            const hearts = document.querySelectorAll(".heart");
+            
+            let currentIndex = 0;
+            let currentIndexLetter = 0;
+            let currentIndexTitle = 0;
+            let timeDatetxt;
+            let intervalContent;
+            let intervalTitle;
+            
+            // Function to add date of birth text with animation
+            function animateDateText() {
+                const charArr = datetxt.split('');
+                
+                timeDatetxt = setInterval(function(){
+                    if(currentIndex < charArr.length){
+                        dateOfBirth.textContent += charArr[currentIndex];
+                        currentIndex++;
+                    } else {
+                        let starIcon = document.createElement("i");
+                        starIcon.className = "fa-solid fa-star";
+                        document.querySelector(".date__of__birth").prepend(starIcon);
+                        document.querySelector(".date__of__birth").appendChild(starIcon.cloneNode(true));
+                        clearInterval(timeDatetxt);
+                    }
+                }, 100);
+            }
+            
+            // Start date animation after delay
+            setTimeout(animateDateText, 12000);
+            
+            // Handle letter button click
+            btnLetter.addEventListener('click', function() {
+                openLetter();
+            });
+            
+            // Handle close button click
+            closeBtn.addEventListener('click', function() {
+                closeLetter();
+            });
+            
+            // Function to open and animate letter
+            function openLetter() {
+                letterPopup.style.display = 'block';
+                
+                setTimeout(function(){
+                    letterBorder.style.display = 'block';
+                }, 1000);
+                
+                // Animate title
+                setTimeout(function(){
+                    const charArrTitle = titleLetter.split('');
+                    
+                    intervalTitle = setInterval(function(){
+                        if(currentIndexTitle < charArrTitle.length){
+                            titleLetterEl.textContent += charArrTitle[currentIndexTitle];
+                            let heartIcon = document.createElement("i");
+                            heartIcon.className = "fa-solid fa-heart";
+                            titleLetterEl.appendChild(heartIcon);
+                            currentIndexTitle++;
+                        } else {
+                            clearInterval(intervalTitle);
+                        }
+                    }, 100);
+                }, 2000);
+                
+                // Animate hearts and images
+                setTimeout(function(){
+                    heartLetter.classList.add("animationOp");
+                    loveImg.classList.add("animationOp");
+                    mewmew.classList.add("animationOp");
+                }, 2800);
+                
+                setTimeout(function(){
+                    hearts.forEach((heart) => {
+                        heart.classList.add("animation");
+                    });
+                }, 3500);
+                
+                // Animate letter text
+                setTimeout(function(){
+                    const charArrLetter = datatxtletter.split('');
+                    
+                    intervalContent = setInterval(function(){
+                        if(currentIndexLetter < charArrLetter.length){
+                            textLetter.textContent += charArrLetter[currentIndexLetter];
+                            currentIndexLetter++;
+                        } else {
+                            clearInterval(intervalContent);
+                        }
+                    }, 50);
+                }, 6000);
+            }
+            
+            // Function to close letter and reset animations
+            function closeLetter() {
+                clearInterval(intervalContent);
+                titleLetterEl.textContent = "";
+                textLetter.textContent = "";
+                currentIndexLetter = 0;
+                currentIndexTitle = 0;
+                
+                heartLetter.classList.remove("animationOp");
+                loveImg.classList.remove("animationOp");
+                mewmew.classList.remove("animationOp");
+                
+                hearts.forEach((heart) => {
+                    heart.classList.remove("animation");
+                });
+                
+                letterPopup.style.display = 'none';
+                letterBorder.style.display = 'none';
+            }
+            
+            // Close letter if user clicks outside
+            letterPopup.addEventListener('click', function(event) {
+                if (event.target === letterPopup) {
+                    closeLetter();
+                }
+            });
+            
+            // Add keyboard accessibility - close on Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && letterPopup.style.display === 'block') {
+                    closeLetter();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
