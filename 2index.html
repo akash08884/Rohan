@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Happy Birthday Website 2.0 | Aoudumber Bade">
+    <meta name="github" content="https://github.com/akash08884">
+    <title>HBD 2.0 | Akash</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <audio id="birthdaySong" src="./audio/happy-birthday.mp3" loop></audio>
+    <audio id="cheerSound" src="./audio/cheer.mp3"></audio>
+
+    <div id="wrapper">
+        <!-- Birthday Flag Section -->
+        <div class="flag__birthday">
+            <img src="./images/flag.png" class="flag flag__left">
+            <img src="./images/flag.png" class="flag flag__right">
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <div class="left">
+                <!-- Title Section -->
+                <div class="title">
+                    <h1 class="happy">
+                        <span style="--t: 4s;">H</span>
+                        <span style="--t: 4.2s;">a</span>
+                        <span style="--t: 4.4s;">p</span>
+                        <span style="--t: 4.6s;">p</span>
+                        <span style="--t: 4.8s;">y</span>
+                    </h1>
+                    <h1 class="birthday">
+                        <span style="--t: 5s;">B</span>
+                        <span style="--t: 5.2s;">i</span>
+                        <span style="--t: 5.4s;">r</span>
+                        <span style="--t: 5.6s;">t</span>
+                        <span style="--t: 5.8s;">h</span>
+                        <span style="--t: 6s;">d</span>
+                        <span style="--t: 6.2s;">a</span>
+                        <span style="--t: 6.4s;">y</span>
+                    </h1>
+                    <div class="hat">
+                        <img src="./images/hat.png" alt="" width="130">
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <button id="btn__letter">Click here Govinda <i class="fa-regular fa-envelope"></i></button>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="profile">
+                    <img src="./images/profile.png" class="profile__img">
+                    <div class="name"> <i class="fa-solid fa-heart"></i> Akash <i class="fa-solid fa-heart"></i> </div>
+                    <div class="balloon"><img src="./images/balloon.png"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorations -->
+        <div class="decorate_star star1" style="--t: 15s;"></div>
+        <div class="decorate_star star2" style="--t: 15.2s;"></div>
+        <div class="decorate_flower--one" style="--t: 15s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+
+        <!-- Letter Box -->
+        <div class="box__letter">
+            <div class="letter__border">
+                <div class="letter">
+                    <div class="content__letter">
+                        <div class="left">
+                            <img id="heart__letter" src="https://media.giphy.com/media/YKUvclrGYmDKXwtphf/giphy.gif" alt="">
+                            <img class="heart heart_1" style="--t: 0.2s" width="20" src="./images/heart.png" alt="">
+                            <img class="heart heart_2" style="--t: 0.4s" width="20" src="./images/heart.png" alt="">
+                            <img class="heart heart_3" style="--t: 0.6s" width="20" src="./images/heart.png" alt="">
+                            <img class="heart heart_4" style="--t: 0.8s" width="20" src="./images/heart.png" alt="">
+                        </div>
+                        <div class="right">
+                            <div class="love__img">
+                                <img src="https://media.giphy.com/media/m85llaN7ZkFIHtURiC/giphy.gif" alt="" width="220">
+                            </div>
+                            <div class="text__letter">
+                                 <p></p>
+                            </div>
+                            <img id="mewmew" width="80" src="./images/mewmew.gif" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Birthday Cake -->
+        <div class="cake">
+            <img src="./images/cake.png" id="cakeImg">
+            <button id="blowCandles">Blow Candles</button>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <div id="copy">
+        <p class="text-center text-white text-sm">OG Creator <a href="https://www.instagram.com/">@Akash</a></p>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        $(document).ready(function() {
+            let message = "Happy Birthday! May your day be filled with joy and laughter!";
+            let currentIndex = 0;
+
+            // Birthday Song & Cheer Sound
+            $("#btn__letter").click(function() {
+                $(".letter__box").fadeIn();
+                document.getElementById("birthdaySong").play();
+                let interval = setInterval(function() {
+                    if (currentIndex < message.length) {
+                        $(".message").append(message[currentIndex]);
+                        currentIndex++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 100);
+            });
+
+            $(".close").click(function() {
+                $(".letter__box").fadeOut();
+                $(".message").empty();
+                document.getElementById("birthdaySong").pause();
+            });
+
+            // Fireworks Effect
+            function createFireworks() {
+                const canvas = document.getElementById("fireworks");
+                const ctx = canvas.getContext("2d");
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                function drawFirework(x, y) {
+                    for (let i = 0; i < 100; i++) {
+                        setTimeout(() => {
+                            ctx.beginPath();
+                            ctx.arc(x + Math.random() * 100 - 50, y + Math.random() * 100 - 50, 2, 0, Math.PI * 2);
+                            ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                            ctx.fill();
+                        }, i * 10);
+                    }
+                }
+
+                setInterval(() => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    drawFirework(Math.random() * canvas.width, Math.random() * canvas.height / 2);
+                }, 1000);
+            }
+            createFireworks();
+
+            // Blow Candles Effect
+            $("#blowCandles").click(function() {
+                $("#cakeImg").attr("src", "./images/cake-blown.png");
+                document.getElementById("cheerSound").play();
+            });
+        });
+    </script>
+
+</body>
+</html>
