@@ -1,90 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Titan+One&family=Nerko+One&family=Sriracha&family=Dancing+Script:wght@700&display=swap');
-
-:root {
-    --color-pink: #feecea;
-    --color-white: #fff;
-    --color-black: #333;
-    --color-text-pink: #ff7882;
-    --color-heart: #F61F1F;
-    --color-bg-letter: #fff8e4;
-    --color-border: #DACCBF;
-    
-    /* Added new variables for better maintainability */
-    --animation-heart-scale: scaleHeart 1s infinite linear;
-    --border-radius-standard: 50px;
-    --border-standard: 3px solid var(--color-black);
-    --shadow-standard: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    --font-title: "Titan One", sans-serif;
-    --font-text: "Sriracha", cursive;
-    --font-letter: 'Dancing Script', cursive;
+/* Font Imports with font-display */
+@font-face {
+    font-family: 'Coiny';
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+}
+@font-face {
+    font-family: 'Titan One';
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+}
+@font-face {
+    font-family: 'Nerko One';
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+}
+@font-face {
+    font-family: 'Sriracha';
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+}
+@font-face {
+    font-family: 'Dancing Script';
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 }
 
-/* CSS Reset and Defaults */
+/* Reset and Base Styles */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* Variables */
+:root {
+    /* Colors */
+    --primary-color: #feecea;
+    --secondary-color: #ff7882;
+    --white: #fff;
+    --black: #333;
+    --heart-color: #F61F1F;
+    --letter-bg: #fff8e4;
+    --border-color: #DACCBF;
+    
+    /* Fonts */
+    --title-font: "Titan One", sans-serif;
+    --text-font: "Sriracha", cursive;
+    --letter-font: 'Dancing Script', cursive;
+    
+    /* Common Sizes */
+    --border-radius: 50px;
+    --border-width: 3px;
+}
+
+/* Utility Classes */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.border-standard {
+    border: var(--border-width) solid var(--black);
+    border-radius: var(--border-radius);
+}
+
+.shadow-standard {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
+}
+
+/* Base Layout */
 html {
     height: 100%;
-    scroll-behavior: smooth;
 }
 
 body {
     position: relative;
     font-size: 16px;
-    margin: 0;
-    padding: 0;
     height: 100%;
-    background-image: linear-gradient(var(--color-pink), var(--color-pink));
-    font-family: var(--font-text);
-    line-height: 1.5;
-    overflow-x: hidden;
+    background: linear-gradient(var(--primary-color), var(--primary-color));
 }
 
-/* Improved focus styles for accessibility */
-button:focus, a:focus {
-    outline: 3px solid var(--color-text-pink);
-    outline-offset: 2px;
-}
-
-/* Main wrapper */
-#wrapper {
+/* Wrapper Styles */
+.wrapper {
     position: relative;
-    background-color: transparent;
-    background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent), 
-                     linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent);
     height: 100%;
+    background-color: transparent;
+    background-image: 
+        linear-gradient(0deg, transparent 24%, var(--white) 25%, var(--white) 26%, transparent 27%, transparent 74%, var(--white) 75%, var(--white) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, var(--white) 25%, var(--white) 26%, transparent 27%, transparent 74%, var(--white) 75%, var(--white) 76%, transparent 77%, transparent);
     background-size: 80px 80px;
     overflow: hidden;
     z-index: 1;
 }
 
-/* Flag section */
-.flag__birthday {
+/* Birthday Flag Section */
+.birthday-flag {
     display: flex;
     justify-content: space-between;
     transform: translateY(-200px);
-    animation: translateYFlag 1.5s 2s forwards;
-    will-change: transform; /* Performance optimization */
+    animation: flagEntrance 1.5s 2s forwards;
 }
 
-@keyframes translateYFlag {
-    to {
-        transform: translateY(-10px);
-    }
-}
-
-.flag__birthday .flag__left {
+.birthday-flag__left {
     transform: rotate(-10deg) translate(-20px, 30px);
 }
 
-.flag__birthday .flag__right {
+.birthday-flag__right {
     transform: rotate(10deg) translate(20px, 30px) scaleX(-1);
 }
 
-/* Main content layout */
+/* Content Section */
 .content {
     width: 100%;
     position: relative;
@@ -92,8 +123,8 @@ button:focus, a:focus {
     padding-top: 3rem;
 }
 
-.content .left, 
-.content .right {
+.content__left,
+.content__right {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -101,411 +132,74 @@ button:focus, a:focus {
     align-items: center;
 }
 
-.content .left {
+.content__left {
     width: 40%;
 }
 
-.content .right {
+.content__right {
     width: 60%;
 }
 
-/* Button styles */
-.left .btn {
-    transform: scale(0);
-    animation: scaleCricle 2s 16s forwards ease-in-out;
-}
-
-#btn__letter {
+/* Button Styles */
+.button {
     position: relative;
     margin-top: 30px;
-    background-color: var(--color-text-pink);
-    outline: none;
-    padding: 8px 15px;
+    background-color: var(--secondary-color);
+    padding: 5px 15px;
     font-size: 1rem;
-    border-radius: var(--border-radius-standard);
-    border: var(--border-standard);
-    font-family: var(--font-text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: var(--text-font);
     cursor: pointer;
-    z-index: 2;
     transform: scale(1);
-    transition: all .3s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
-#btn__letter:active {
-    transform: scale(0.95);
+.button:hover {
+    background-color: var(--heart-color);
+    color: var(--white);
 }
 
-#btn__letter i {
-    margin-left: 8px;
-}
-
-#btn__letter:hover,
-#btn__letter:focus {
-    border-color: var(--color-heart);
-    background-color: var(--color-heart);
-    color: var(--color-white);
-    box-shadow: var(--shadow-standard);
-}
-
-#btn__letter:hover i,
-#btn__letter:focus i {
-    animation: rotateHeart 1s infinite linear;
-}
-
-@keyframes rotateHeart {
-    0%, 50%, 100% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(12deg);
-    }
-    75% {
-        transform: rotate(-12deg);
-    }
-}
-
-/* Title styles with improved animation */
-.title {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-family: var(--font-title);
-    font-size: 3rem;
-    flex-direction: column;
-    perspective: 1000px;
-    text-align: center;
-}
-
-.title .happy, 
-.title .birthday {
-    position: relative;
-    text-shadow: 4px 4px var(--color-black), 
-                -4px 4px var(--color-black), 
-                4px -4px var(--color-black), 
-                -4px -4px var(--color-black), 
-                4px 8px 0 var(--color-black);
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-}
-
-.title .happy {
-    color: var(--color-white);
-}
-
-.title .happy span, 
-.title .birthday span {
-    transform: translateY(50px);
-    opacity: 0;
-    visibility: hidden;
-    animation: txtTranslateY .5s var(--t) forwards;
-    will-change: transform, opacity; /* Performance hint */
-}
-
-@keyframes txtTranslateY {
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-.title .birthday {
-    color: var(--color-text-pink);
-}
-
-/* Party hat animation */
-.title .hat {
-    position: absolute;
-    right: 45px;
-    top: -350px;
-    transform: rotate(-40deg);
-    z-index: -1;
-    animation: topHat 4s 7s forwards ease;
-    will-change: transform; /* Performance optimization */
-}
-
-@keyframes topHat {
-    20%, 30% {
-        top: -30px;
-        transform-origin: left;
-        transform: rotate(-40deg);
-    }
-    35%, 100% {
-        top: -30px;
-        transform: rotate(0deg);
-    }
-}
-
-/* Date of birth and name styles */
-.date__of__birth, 
-.name {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--color-text-pink);
-    border-radius: var(--border-radius-standard);
-    margin-top: 20px;
-    font-family: var(--font-text);
-}
-
-.date__of__birth {
-    border: var(--border-standard);
-    position: relative;
-    transform: translateY(-100px);
-    z-index: -1;
-    opacity: 0;
-    visibility: hidden;
-    width: 0px;
-    animation: dateOfBirth 5s 9s forwards;
-    will-change: transform, opacity, width, height; /* Performance optimization */
-}
-
-@keyframes dateOfBirth {
-    20%, 40% {
-        width: 0px;
-        height: 0;
-        transform: translateY(0px);
-        opacity: 1;
-        visibility: visible;
-    }
-    45% {
-        transform: translateY(0px);
-        opacity: 1;
-        visibility: visible;
-        width: 300px;
-        height: 0px;
-    }
-    50%, 100% {
-        transform: translateY(0px);
-        opacity: 1;
-        visibility: visible;
-        width: 300px;
-        height: 50px;
-    }
-}
-
-.name {
-    position: absolute;
-    padding: 0px 40px;
-    bottom: -20px;
-    border: var(--border-standard);
-}
-
-.date__of__birth span, 
-.name span {
-    font-weight: bold;
-    margin: 0px 40px;
-}
-
-.date__of__birth span {
-    font-size: 1.2rem;
-}
-
-.name span {
-    font-size: 1.7rem;
-}
-
-/* Image box animation */
-.right .box__account {
-    position: relative;
-    transform: translateY(700px);
-    animation: topBoxImage 8s 7s forwards ease-in;
-    will-change: transform; /* Performance optimization */
-}
-
-@keyframes topBoxImage {
+/* Animation Keyframes */
+@keyframes flagEntrance {
     to {
-        transform: translateY(0);
+        transform: translateY(-10px);
     }
 }
 
-/* Profile image styling */
-.content .right .image {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    border: 6px solid var(--color-black);
+@keyframes scaleEffect {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
 
-.content .right .image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        gap: 25px;
+    }
 
-/* Rotating circle */
-.cricle {
-    position: absolute;
-    top: 20px;
-    right: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: scale(0);
-    animation: scaleCricle 3s 15s forwards ease-in-out;
-    will-change: transform; /* Performance optimization */
-}
+    .content__left,
+    .content__right {
+        width: 100%;
+    }
 
-@keyframes scaleCricle {
-    0% {
-        transform: scale(0);
+    .birthday-flag__left {
+        transform: rotate(-10deg) translate(-119px, 3px);
     }
-    10% {
-        transform: scale(1.3);
-    }
-    20% {
-        transform: scale(0.7);
-    }
-    30%, 100% {
-        transform: scale(1);
+
+    .birthday-flag__right {
+        transform: rotate(10deg) translate(-106px, 39px) scaleX(-1);
     }
 }
 
-.text__cricle {
-    width: 100px;
-    height: 100px;
-    background-color: var(--color-text-pink);
-    border-radius: 50%;
-    border: 5px solid var(--color-black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: rotateCricle 5s linear infinite;
-    will-change: transform; /* Performance optimization */
-}
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+        letter-spacing: 8px;
+    }
 
-@keyframes rotateCricle {
-    to {
-        transform: rotate(360deg);
+    .button {
+        width: 209px;
+        padding: 6px 4px;
     }
 }
-
-.text__cricle span {
-    top: 0%;
-    left: 50%;
-    position: absolute;
-    color: var(--color-black);
-    transform: rotate(calc(var(--i) * 24deg));
-    transform-origin: 0 45px;
-    font-family: var(--font-text);
-    text-transform: uppercase;
-    font-size: 0.7rem;
-}
-
-/* Heart icon animations */
-.fa-heart {
-    color: var(--color-heart);
-    filter: drop-shadow(0 0 3px var(--color-heart));
-    animation: var(--animation-heart-scale);
-}
-
-.cricle .fa-heart {
-    position: absolute;
-    transform: scale(0.85);
-}
-
-@keyframes scaleHeart {
-    50% {
-        transform: scale(1.2);
-    }
-}
-
-/* Balloon animations */
-.right .balloon_one {
-    position: absolute;
-    top: -70px;
-    left: -70px;
-    animation: balloon1 2s infinite linear;
-    will-change: transform; /* Performance optimization */
-}
-
-@keyframes balloon1 {
-    0%, 50%, 100% {
-        transform-origin: bottom right;
-        transform: rotate(0deg);
-    }
-    25% {
-        transform-origin: bottom right;
-        transform: rotate(3deg);
-    }
-    75% {
-        transform-origin: bottom right;
-        transform: rotate(-3deg);
-    }
-}
-
-.right .balloon_two {
-    position: absolute;
-    top: 170px;
-    right: -65px;
-    z-index: -1;
-    transform: rotate(10deg);
-    animation: balloon2 2s infinite linear;
-    will-change: transform; /* Performance optimization */
-}
-
-@keyframes balloon2 {
-    0%, 50%, 100% {
-        transform-origin: bottom left;
-        transform: rotate(10deg);
-    }
-    25% {
-        transform-origin: bottom left;
-        transform: rotate(7deg);
-    }
-    75% {
-        transform-origin: bottom left;
-        transform: rotate(13deg);
-    }
-}
-
-/* Decorative stars */
-.decorate_star {
-    position: absolute;
-    transform: scale(0);
-    background-color: var(--color-black);
-    clip-path: polygon(0 50%, 35% 35%, 50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%);
-    animation: scaleCricle 3s var(--t) forwards, 
-               scaleStar 2s 16s infinite ease-in-out;
-    will-change: transform; /* Performance optimization */
-}
-
-.decorate_star.star1 {
-    width: 20px;
-    height: 20px;
-    top: 75px;
-    left: 300px;
-}
-
-.decorate_star.star2 {
-    width: 15px;
-    height: 20px;
-    top: 35px;
-    right: 360px;
-}
-
-.decorate_star.star3 {
-    width: 14px;
-    height: 14px;
-    top: 290px;
-    left: 630px;
-}
-
-.decorate_star.star4 {
-    width: 18px;
-    height: 18px;
-    bottom: 60px;
-    left: 35px;
-}
-
-.decorate_star.star5 {
-    width:
